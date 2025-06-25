@@ -1,34 +1,139 @@
+/* General Body Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif; /* You can change this font later */
     margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Dark grey text */
+    line-height: 1.6;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+/* Container for content width */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section Styling */
+.hero-section {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 100px 20px; /* Top/bottom padding */
+    min-height: 100vh; /* Make it full height of viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #fff; /* Keep h1 white in hero */
+}
+
+.hero-section .tagline {
+    font-size: 1.8em;
+    color: #007bff; /* Accent color */
     margin-bottom: 20px;
 }
 
-h1 {
-    color: #007bff; /* A nice blue color */
+.hero-section .mission-statement {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
 }
 
-a {
-    color: #007bff;
+.hero-buttons .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 0 10px;
+    border-radius: 5px;
     text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-a:hover {
-    text-decoration: underline;
+.hero-buttons .primary-btn {
+    background-color: #007bff; /* Blue button */
+    color: #fff;
+    border: 2px solid #007bff;
 }
 
+.hero-buttons .primary-btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.hero-buttons .secondary-btn {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.hero-buttons .secondary-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Section Headings */
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* About Me Section Styling */
+.about-section {
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center; /* Center content within about section */
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column; /* Stack on small screens */
+    align-items: center; /* Center items */
+    gap: 40px; /* Space between text and image */
+}
+
+.about-text {
+    max-width: 600px; /* Limit text width for readability */
+    text-align: left; /* Align text within its container */
+}
+
+.about-image img {
+    width: 250px; /* Fixed width for the image */
+    height: 250px; /* Fixed height for the image */
+    border-radius: 50%; /* Makes image round */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    border: 5px solid #007bff; /* Blue border around image */
+}
+
+/* Placeholder Sections (Temporary styling) */
+.section-placeholder {
+    padding: 60px 0;
+    background-color: #e9ecef;
+    margin-bottom: 20px;
+}
+
+/* Footer Styling */
 footer {
-    margin-top: 40px;
-    font-size: 0.8em;
-    color: #666;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+/* Responsive Design adjustments */
+@media (min-width: 768px) {
+    .about-content {
+        flex-direction: row; /* Row direction on larger screens */
+        justify-content: center; /* Center items horizontally */
+        text-align: left; /* Align text left for row layout */
+    }
 }
