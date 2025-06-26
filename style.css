@@ -1,12 +1,12 @@
 /* Define consistent color variables */
 :root {
-    --primary-accent-color: #00bcd4; /* Vibrant Cyan - for icons, underlines, general links, buttons */
-    --secondary-accent-color: #007bff; /* Darker Blue - for specific highlights like tagline */
-    --dark-primary-bg: #333; /* Dark background from hero and skill bar fill */
+    --primary-accent-color: #007bff; /* This is now the ONLY accent blue, darker as requested */
+    --dark-primary-bg: #333; /* Dark background from hero */
     --light-section-bg: #fff; /* White background for sections like About, Services, Skills */
     --text-color-dark: #222; /* Dark text for headings and main content */
     --text-color-light: #555; /* Slightly lighter text for paragraphs */
-    --border-color: #eee; /* Light border color for cards */
+    --border-color-light: #eee; /* Light border color for general use */
+    --border-color-dark: #000; /* Dark border color for cards */
 }
 
 /* General Body & Typography Styles */
@@ -36,11 +36,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section Styling */
 .hero-section {
     position: relative;
-    /* Optional: If you want a background image, uncomment and adjust path */
-    /* background-image: url('images/your-hero-image.jpg'); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    /* background-attachment: fixed; */
     background-color: var(--dark-primary-bg); /* Consistent dark background */
     color: #fff;
     text-align: center;
@@ -70,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     z-index: 2;
     padding: 20px;
-    /* background: rgba(0,0,0,0.3); -- REMOVED THIS LINE COMPLETELY to remove the box */
+    /* Removed background for the box structure */
     border-radius: 10px;
 }
 
@@ -83,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-section .tagline {
     font-size: 2em;
-    color: var(--secondary-accent-color); /* Darker blue for tagline as requested */
+    color: var(--primary-accent-color); /* Now using the single, darker accent blue */
     margin-bottom: 25px;
 }
 
@@ -106,12 +101,12 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease;
     letter-spacing: 1px;
     background-color: transparent; /* Start transparent for outline effect */
-    border: 2px solid var(--primary-accent-color); /* Border with accent color */
-    color: var(--primary-accent-color); /* Text color with accent */
+    border: 2px solid var(--primary-accent-color); /* Border with primary accent color */
+    color: var(--primary-accent-color); /* Text color with primary accent */
 }
 
 .hero-buttons .btn:hover {
-    background-color: var(--primary-accent-color); /* Fill with accent color on hover */
+    background-color: var(--primary-accent-color); /* Fill with primary accent color on hover */
     color: #fff; /* White text on hover */
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.3);
@@ -135,14 +130,14 @@ h2::after {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background-color: var(--primary-accent-color); /* Accent color for underline */
+    background-color: var(--primary-accent-color); /* Primary accent color for underline */
     border-radius: 2px;
 }
 
 /* About Me Section Styling */
 .about-section {
     padding: 100px 0;
-    background-color: var(--light-section-bg); /* Consistent light background */
+    background-color: var(--light-section-bg);
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     margin-bottom: 30px;
@@ -158,12 +153,12 @@ h2::after {
 }
 
 .about-text {
-    max-width: 600px; /* Control text width */
+    max-width: 600px;
     text-align: left;
     font-size: 1.1em;
     color: var(--text-color-light);
-    flex-basis: 1; /* Allow text to grow/shrink based on available space */
-    min-width: 300px; /* Prevent text from becoming too narrow before wrapping */
+    flex-basis: 1;
+    min-width: 300px;
 }
 
 .about-text p {
@@ -174,10 +169,10 @@ h2::after {
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    object-fit: cover; /* Ensures image covers the area without distortion */
-    border: none; /* Explicitly ensure no border */
+    object-fit: cover;
+    border: none;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    max-width: 100%; /* Ensure image is responsive */
+    max-width: 100%;
 }
 
 /* Placeholder Sections (Used for Projects and Contact for now) */
@@ -231,7 +226,7 @@ footer {
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: 1px solid #000; /* Black outline */
+    border: 1px solid var(--border-color-dark); /* Black border for consistency with services */
 }
 
 .skill-card:hover {
@@ -241,7 +236,7 @@ footer {
 
 .skill-icon {
     font-size: 3.5em;
-    color: var(--primary-accent-color); /* Set to primary accent blue as requested */
+    color: var(--primary-accent-color); /* Primary accent blue for icons */
     margin-bottom: 20px;
 }
 
@@ -254,7 +249,7 @@ footer {
 /* Skill Level Bar Styling */
 .skill-level-bar {
     width: 100%;
-    background-color: var(--border-color);
+    background-color: var(--border-color-light); /* Light grey bar */
     border-radius: 5px;
     height: 8px;
     margin-top: 10px;
@@ -263,7 +258,7 @@ footer {
 
 .skill-level-fill {
     height: 100%;
-    background-color: var(--dark-primary-bg); /* Still dark fill for contrast with white card */
+    background-color: var(--primary-accent-color); /* Primary accent blue for fill */
     border-radius: 5px;
     transition: width 0.8s ease-in-out;
 }
@@ -281,7 +276,7 @@ footer {
     justify-content: center;
     font-style: italic;
     color: #777;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color-light);
 }
 
 /* My Quality Services Section Styling */
@@ -311,7 +306,7 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color-dark); /* Black border for consistency with skills */
 }
 
 .service-card:hover {
@@ -321,7 +316,7 @@ footer {
 
 .service-icon {
     font-size: 4em;
-    color: var(--primary-accent-color); /* Using the primary accent color */
+    color: var(--primary-accent-color); /* Primary accent color for service icons */
     margin-bottom: 25px;
 }
 
@@ -339,7 +334,7 @@ footer {
 
 /* General Link Styling (ensure consistency) */
 a {
-    color: var(--primary-accent-color);
+    color: var(--primary-accent-color); /* Primary accent color for general links */
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -353,7 +348,7 @@ a:hover {
 @media (max-width: 768px) {
     .services-grid,
     .skills-grid {
-        grid-template-columns: 1fr; /* Single column on smaller screens */
+        grid-template-columns: 1fr;
     }
 
     .hero-section h1 {
@@ -374,7 +369,6 @@ a:hover {
         font-size: 2em;
     }
 
-    /* About content will now handle its own wrapping via flex-wrap */
     .about-content {
         flex-direction: column; /* Force column on small screens */
     }
