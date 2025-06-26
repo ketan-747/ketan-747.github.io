@@ -224,7 +224,7 @@ footer {
     align-items: center;
     text-align: center;
     border: 1px solid var(--border-color-dark);
-    max-height: 170px; /* Adjust this value if your initial content is taller/shorter */
+    max-height: 170px;
     overflow: hidden;
     position: relative;
 }
@@ -255,12 +255,12 @@ footer {
     color: var(--text-color-dark);
 }
 
-/* Subskills List Styling - UPDATED */
+/* Subskills List Styling - UPDATED for Center Alignment */
 .subskills-list {
     list-style: disc; /* Display standard bullet points */
     padding: 0 20px; /* Add horizontal padding for indentation of bullets */
     margin: 10px 0 0 0;
-    text-align: left;
+    text-align: center; /* THIS IS THE CHANGE: Center align the list items */
     width: 100%;
 
     max-height: 0;
@@ -271,7 +271,7 @@ footer {
 }
 
 .skill-card:hover .subskills-list {
-    max-height: 200px; /* A generous height to ensure all subskills are visible on hover */
+    max-height: 200px;
     opacity: 1;
     visibility: visible;
 }
@@ -280,7 +280,6 @@ footer {
     font-size: 0.9em;
     color: var(--text-color-dark); /* Changed subskill font color to black */
     margin-bottom: 8px;
-    /* Removed padding-left and position: relative; and ::before styles for standard bullets */
 }
 
 .subskills-list li:last-child {
@@ -391,7 +390,7 @@ a:hover {
     }
 
     .subskills-list {
-        max-height: 200px; /* Or a larger value if needed */
+        max-height: 200px;
         opacity: 1;
         visibility: visible;
         transition: none;
