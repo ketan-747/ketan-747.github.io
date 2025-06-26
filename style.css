@@ -1,6 +1,6 @@
 /* Define consistent color variables */
 :root {
-    --primary-accent-color: #007bff; /* This is now the ONLY accent blue, darker as requested */
+    --primary-accent-color: #2159B7; /* New Rich, Balanced Blue */
     --dark-primary-bg: #333; /* Dark background from hero */
     --light-section-bg: #fff; /* White background for sections like About, Services, Skills */
     --text-color-dark: #222; /* Dark text for headings and main content */
