@@ -1,10 +1,10 @@
 /* Define consistent color variables */
 :root {
-    --primary-accent-color: #2159B7; /* New Rich, Balanced Blue */
-    --dark-primary-bg: #333; /* Dark background from hero */
+    --primary-accent-color: #048872; /* New Rich, Balanced Blue */
+    --dark-primary-bg: #000; /* Dark background from hero */
     --light-section-bg: #fff; /* White background for sections like About, Services, Skills */
     --text-color-dark: #222; /* Dark text for headings and main content */
-    --text-color-light: #555; /* Slightly lighter text for paragraphs */
+    --text-color-light: #666; /* Slightly lighter text for paragraphs */
     --border-color-light: #eee; /* Light border color for general use */
     --border-color-dark: #000; /* Dark border color for cards */
 }
