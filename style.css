@@ -33,22 +33,25 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
 }
 
-/* Hero Section Styling - FURTHER UPDATED */
+/* Hero Section Styling - UPDATED for Left Alignment */
 .hero-section {
     position: relative;
-    background-color: var(--dark-primary-bg);
+    background-image: url('./images/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #fff;
-    text-align: center;
-    padding: 60px 20px; /* Further reduced top/bottom padding */
-    min-height: 75vh; /* Further reduced minimum height */
+    /* Removed text-align: center; */
+    padding: 60px 20px;
+    min-height: 75vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start; /* Align content to the start (left) of the cross-axis */
+    justify-content: center; /* Keep content vertically centered */
     flex-direction: column;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Overlay for text readability (if using background image) */
+/* Overlay for text readability (kept as is, crucial for image background) */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -65,6 +68,9 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 2;
     padding: 20px;
     border-radius: 10px;
+    text-align: left; /* Ensure all text within this container is left-aligned */
+    max-width: 600px; /* Limit width of content block */
+    margin-left: 80px; /* Adjust this value to control space from the left edge */
 }
 
 .hero-section h1 {
@@ -82,16 +88,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-section .mission-statement {
     font-size: 1.3em;
-    max-width: 800px;
-    margin: 0 auto 40px auto;
+    max-width: 800px; /* Keep this if you want the statement to wrap earlier */
+    margin: 0 0 40px 0; /* Adjusted margin for left alignment */
     font-weight: 300;
 }
 
-/* Hero Buttons Styling - Unified Look */
+/* Hero Buttons Styling - Unified Look & Left Aligned */
+.hero-buttons {
+    display: flex; /* Make buttons a flex container */
+    justify-content: flex-start; /* Align buttons to the left */
+    width: 100%; /* Ensure it takes full width to align buttons */
+    padding-left: 0; /* Remove any default padding */
+}
+
 .hero-buttons .btn {
     display: inline-block;
     padding: 15px 35px;
-    margin: 0 15px;
+    margin: 0 15px 0 0; /* Adjusted margin-right only */
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
@@ -221,7 +234,7 @@ footer {
     transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.4s ease-out;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers main skill content horizontally */
+    align-items: center;
     text-align: center;
     border: 1px solid var(--border-color-dark);
     max-height: 170px;
@@ -232,7 +245,7 @@ footer {
 .skill-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    max-height: 350px; /* Enough height to reveal all subskills. Adjust if more needed. */
+    max-height: 350px;
 }
 
 .main-skill-content {
@@ -255,14 +268,14 @@ footer {
     color: var(--text-color-dark);
 }
 
-/* Subskills List Styling - UPDATED for Consistent Bullet Alignment */
+/* Subskills List Styling */
 .subskills-list {
-    list-style: disc; /* Use standard bullet points */
-    list-style-position: outside; /* Bullet outside content block, standard */
-    padding-left: 20px; /* Add some left padding to make space for bullets */
-    margin: 10px auto 0 auto; /* Center the entire list block */
-    max-width: 200px; /* Set a max-width for the list to allow margin:auto to center it */
-    text-align: left; /* Keep text left-aligned within the list for clean bullet start */
+    list-style: disc;
+    list-style-position: outside;
+    padding-left: 20px;
+    margin: 10px auto 0 auto;
+    max-width: 200px;
+    text-align: left;
 
     max-height: 0;
     opacity: 0;
@@ -279,9 +292,8 @@ footer {
 
 .subskills-list li {
     font-size: 0.9em;
-    color: #000; /* Pure black for subskill text */
+    color: #000;
     margin-bottom: 8px;
-    /* No text-align on li, it inherits from ul */
 }
 
 .subskills-list li:last-child {
@@ -362,7 +374,7 @@ a:hover {
     }
 
     .hero-section h1 {
-        font-size: 3em; /* Adjusted for smaller screens */
+        font-size: 3em;
     }
 
     .hero-section .tagline {
@@ -371,7 +383,7 @@ a:hover {
 
     .hero-buttons .btn {
         padding: 12px 25px;
-        margin: 0 8px;
+        margin: 0 8px 0 0;
         font-size: 1em;
     }
 
@@ -396,8 +408,23 @@ a:hover {
         opacity: 1;
         visibility: visible;
         transition: none;
-        /* Revert centering for mobile, as list will take full width */
-        margin: 10px 0 0 0;
+        margin: 10px auto 0 auto; /* Center list block on mobile */
         max-width: 100%;
+        padding-left: 20px;
+    }
+
+    /* Adjust hero content for mobile screens */
+    .hero-content {
+        margin-left: 20px; /* Less margin from left edge on smaller screens */
+        padding: 15px; /* Slightly reduce padding */
+        text-align: center; /* Center content on smaller screens to avoid awkward alignment */
+    }
+
+    .hero-section {
+        align-items: center; /* Center content horizontally on smaller screens */
+    }
+
+    .hero-buttons {
+        justify-content: center; /* Center buttons on smaller screens */
     }
 }
