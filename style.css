@@ -163,7 +163,7 @@ footer {
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: 1px solid #eee; /* Light border */
+    border: 1px solid #000;
 }
 
 .skill-card:hover {
@@ -173,7 +173,7 @@ footer {
 
 .skill-icon {
     font-size: 3.5em; /* Large icons */
-    color: #00bcd4; /* Accent color for icons */
+    color: #444; /* Accent color for icons */
     margin-bottom: 20px;
 }
 
@@ -195,7 +195,7 @@ footer {
 
 .skill-level-fill {
     height: 100%;
-    background-color: #00bcd4; /* Accent color for fill */
+    background-color: #333; /* Accent color for fill */
     border-radius: 5px;
     transition: width 0.8s ease-in-out; /* Smooth transition for width change */
 }
@@ -227,5 +227,66 @@ footer {
 @media (max-width: 600px) {
     .skills-grid {
         grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
+
+/* My Quality Services Section Styling */
+.services-section {
+    padding: 80px 0;
+    background-color: #f8f9fa; /* A slightly different light background */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Lighter shadow */
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 columns, responsive */
+    gap: 30px; /* Space between cards */
+    margin-top: 50px;
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 40px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #eee; /* Light border */
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.service-icon {
+    font-size: 4em; /* Larger icons */
+    color: #00bcd4; /* Use an accent color, or change to a darker one like #444 */
+    margin-bottom: 25px;
+}
+/* If you want the service icons to match the new skill icon color, change #00bcd4 to #444 here */
+
+.service-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
     }
 }
