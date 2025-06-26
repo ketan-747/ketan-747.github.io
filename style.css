@@ -33,14 +33,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
 }
 
-/* Hero Section Styling - UPDATED */
+/* Hero Section Styling - FURTHER UPDATED */
 .hero-section {
     position: relative;
-    background-color: var(--dark-primary-bg); /* Consistent dark background */
+    background-color: var(--dark-primary-bg);
     color: #fff;
     text-align: center;
-    padding: 80px 20px; /* Reduced top padding */
-    min-height: 85vh; /* Reduced minimum height */
+    padding: 60px 20px; /* Further reduced top/bottom padding */
+    min-height: 75vh; /* Further reduced minimum height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent overlay */
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
 
@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-section h1 {
-    font-size: 3.8em; /* Reduced font size */
+    font-size: 3.8em;
     margin-bottom: 15px;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -221,10 +221,10 @@ footer {
     transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.4s ease-out;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centers main skill content horizontally */
     text-align: center;
     border: 1px solid var(--border-color-dark);
-    max-height: 170px; /* Adjust this value if your initial content is taller/shorter */
+    max-height: 170px;
     overflow: hidden;
     position: relative;
 }
@@ -255,14 +255,14 @@ footer {
     color: var(--text-color-dark);
 }
 
-/* Subskills List Styling - UPDATED for Centering and Darker Text */
+/* Subskills List Styling - UPDATED for Consistent Bullet Alignment */
 .subskills-list {
-    list-style: disc; /* Display standard bullet points */
-    list-style-position: inside; /* Pulls bullet point inside the text flow */
-    padding-left: 0; /* Remove default browser padding for lists */
-    margin: 10px 0 0 0;
-    text-align: center; /* Center align the list content */
-    width: 100%;
+    list-style: disc; /* Use standard bullet points */
+    list-style-position: outside; /* Bullet outside content block, standard */
+    padding-left: 20px; /* Add some left padding to make space for bullets */
+    margin: 10px auto 0 auto; /* Center the entire list block */
+    max-width: 200px; /* Set a max-width for the list to allow margin:auto to center it */
+    text-align: left; /* Keep text left-aligned within the list for clean bullet start */
 
     max-height: 0;
     opacity: 0;
@@ -279,8 +279,9 @@ footer {
 
 .subskills-list li {
     font-size: 0.9em;
-    color: #000; /* Directly set to pure black for maximum darkness */
+    color: #000; /* Pure black for subskill text */
     margin-bottom: 8px;
+    /* No text-align on li, it inherits from ul */
 }
 
 .subskills-list li:last-child {
@@ -395,5 +396,8 @@ a:hover {
         opacity: 1;
         visibility: visible;
         transition: none;
+        /* Revert centering for mobile, as list will take full width */
+        margin: 10px 0 0 0;
+        max-width: 100%;
     }
 }
