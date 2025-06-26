@@ -3,8 +3,8 @@
     --primary-accent-color: #dd751f; /* Your chosen accent color */
     --dark-primary-bg: #000; /* Dark background from hero */
     --light-section-bg: #fff; /* White background for sections like About, Services, Skills */
-    --text-color-dark: #222; /* Dark text for headings and main content */
-    --text-color-light: #666; /* Slightly lighter text for paragraphs and subskills */
+    --text-color-dark: #222; /* Dark text for headings and main content (and now subskills) */
+    --text-color-light: #666; /* Slightly lighter text for paragraphs */
     --border-color-light: #eee; /* Light border color for general use */
     --border-color-dark: #000; /* Dark border color for cards */
 }
@@ -208,26 +208,25 @@ footer {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted minmax for new content */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
     margin-top: 50px;
 }
 
 .skill-card {
     background-color: #fff;
-    padding: 25px 20px; /* Slightly reduced padding to account for expansion */
+    padding: 25px 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.4s ease-out; /* Added max-height transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.4s ease-out;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     border: 1px solid var(--border-color-dark);
-    /* Set an initial max-height that fits the main skill content */
     max-height: 170px; /* Adjust this value if your initial content is taller/shorter */
-    overflow: hidden; /* Hide overflowing subskills initially */
-    position: relative; /* Needed for any absolute positioning within card */
+    overflow: hidden;
+    position: relative;
 }
 
 .skill-card:hover {
@@ -240,36 +239,34 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; /* Ensures it takes full width for alignment */
-    /* Padding to create space between main skill and subskills */
+    width: 100%;
     padding-bottom: 15px;
 }
 
 .skill-icon {
     font-size: 3.5em;
     color: var(--primary-accent-color);
-    margin-bottom: 15px; /* Reduced margin from 20px */
+    margin-bottom: 15px;
 }
 
 .skill-card h3 {
     font-size: 1.5em;
-    margin-bottom: 0; /* Remove bottom margin to prevent double spacing */
+    margin-bottom: 0;
     color: var(--text-color-dark);
 }
 
-/* Subskills List Styling */
+/* Subskills List Styling - UPDATED */
 .subskills-list {
-    list-style: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 10px 0 0 0; /* Top margin for spacing from main skill */
-    text-align: left; /* Align subskills to the left within the card */
-    width: 100%; /* Ensure list takes full width for left alignment */
+    list-style: disc; /* Display standard bullet points */
+    padding: 0 20px; /* Add horizontal padding for indentation of bullets */
+    margin: 10px 0 0 0;
+    text-align: left;
+    width: 100%;
 
-    /* Initial state: Hidden and collapsed */
     max-height: 0;
     opacity: 0;
     visibility: hidden;
-    overflow: hidden; /* Crucial for hiding content and enabling max-height transition */
+    overflow: hidden;
     transition: max-height 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
 }
 
@@ -281,24 +278,13 @@ footer {
 
 .subskills-list li {
     font-size: 0.9em;
-    color: var(--text-color-light); /* Lighter text for subskills */
-    margin-bottom: 8px; /* Space between subskill items */
-    padding-left: 5px; /* Slight indentation */
-    position: relative;
+    color: var(--text-color-dark); /* Changed subskill font color to black */
+    margin-bottom: 8px;
+    /* Removed padding-left and position: relative; and ::before styles for standard bullets */
 }
 
 .subskills-list li:last-child {
-    margin-bottom: 0; /* No margin after the last item */
-}
-
-/* Add a subtle bullet point for subskills */
-.subskills-list li::before {
-    content: '•'; /* Unicode character for a bullet point */
-    color: var(--primary-accent-color); /* Accent color for the bullet */
-    font-weight: bold;
-    display: inline-block;
-    width: 1em; /* Space for the bullet */
-    margin-left: -1em; /* Negative margin to pull bullet into padding */
+    margin-bottom: 0;
 }
 
 
@@ -398,18 +384,16 @@ a:hover {
 
     /* On mobile, subskills should always be visible (no hover) */
     .skill-card {
-        max-height: fit-content; /* Allow height to adjust to content */
-        overflow: visible; /* Ensure content is visible */
-        /* Optionally remove hover effect on transform/shadow if not desired on mobile */
+        max-height: fit-content;
+        overflow: visible;
         transform: none;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Keep default shadow */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     .subskills-list {
         max-height: 200px; /* Or a larger value if needed */
         opacity: 1;
         visibility: visible;
-        /* No transition on max-height/opacity/visibility if always visible */
         transition: none;
     }
 }
