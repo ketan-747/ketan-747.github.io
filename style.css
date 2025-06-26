@@ -3,7 +3,7 @@
     --primary-accent-color: #dd751f; /* Your chosen accent color */
     --dark-primary-bg: #000; /* Dark background from hero */
     --light-section-bg: #fff; /* White background for sections like About, Services, Skills */
-    --text-color-dark: #222; /* Dark text for headings and main content (and now subskills) */
+    --text-color-dark: #222; /* Dark text for headings and main content */
     --text-color-light: #666; /* Slightly lighter text for paragraphs */
     --border-color-light: #eee; /* Light border color for general use */
     --border-color-dark: #000; /* Dark border color for cards */
@@ -33,14 +33,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
 }
 
-/* Hero Section Styling */
+/* Hero Section Styling - UPDATED */
 .hero-section {
     position: relative;
     background-color: var(--dark-primary-bg); /* Consistent dark background */
     color: #fff;
     text-align: center;
-    padding: 120px 20px;
-    min-height: 100vh;
+    padding: 80px 20px; /* Reduced top padding */
+    min-height: 85vh; /* Reduced minimum height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-section h1 {
-    font-size: 4.5em;
+    font-size: 3.8em; /* Reduced font size */
     margin-bottom: 15px;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -192,7 +192,7 @@ footer {
     font-size: 0.9em;
 }
 
-/* Skills Section Styling (Updated for Subskills Hover) */
+/* Skills Section Styling */
 .skills-section {
     padding: 80px 0;
     background-color: var(--light-section-bg);
@@ -224,7 +224,7 @@ footer {
     align-items: center;
     text-align: center;
     border: 1px solid var(--border-color-dark);
-    max-height: 170px;
+    max-height: 170px; /* Adjust this value if your initial content is taller/shorter */
     overflow: hidden;
     position: relative;
 }
@@ -255,12 +255,13 @@ footer {
     color: var(--text-color-dark);
 }
 
-/* Subskills List Styling - UPDATED for Center Alignment */
+/* Subskills List Styling - UPDATED for Centering and Darker Text */
 .subskills-list {
     list-style: disc; /* Display standard bullet points */
-    padding: 0 20px; /* Add horizontal padding for indentation of bullets */
+    list-style-position: inside; /* Pulls bullet point inside the text flow */
+    padding-left: 0; /* Remove default browser padding for lists */
     margin: 10px 0 0 0;
-    text-align: center; /* THIS IS THE CHANGE: Center align the list items */
+    text-align: center; /* Center align the list content */
     width: 100%;
 
     max-height: 0;
@@ -278,7 +279,7 @@ footer {
 
 .subskills-list li {
     font-size: 0.9em;
-    color: var(--text-color-dark); /* Changed subskill font color to black */
+    color: #000; /* Directly set to pure black for maximum darkness */
     margin-bottom: 8px;
 }
 
@@ -360,7 +361,7 @@ a:hover {
     }
 
     .hero-section h1 {
-        font-size: 3em;
+        font-size: 3em; /* Adjusted for smaller screens */
     }
 
     .hero-section .tagline {
