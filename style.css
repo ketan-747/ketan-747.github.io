@@ -42,8 +42,8 @@ h1, h2, h3, h4, h5, h6 {
     background-repeat: no-repeat;
     color: #fff;
     /* Removed text-align: center; */
-    padding: 60px 20px;
-    min-height: 75vh;
+    padding: 35px 20px;
+    min-height: 70vh;
     display: flex;
     align-items: flex-start; /* Align content to the start (left) of the cross-axis */
     justify-content: center; /* Keep content vertically centered */
