@@ -1,10 +1,10 @@
 /* Define consistent color variables */
 :root {
-    --primary-accent-color: #dd751f; /* New Rich, Balanced Blue */
+    --primary-accent-color: #dd751f; /* Your chosen accent color */
     --dark-primary-bg: #000; /* Dark background from hero */
     --light-section-bg: #fff; /* White background for sections like About, Services, Skills */
     --text-color-dark: #222; /* Dark text for headings and main content */
-    --text-color-light: #666; /* Slightly lighter text for paragraphs */
+    --text-color-light: #666; /* Slightly lighter text for paragraphs and subskills */
     --border-color-light: #eee; /* Light border color for general use */
     --border-color-dark: #000; /* Dark border color for cards */
 }
@@ -58,14 +58,12 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 0;
     background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent overlay */
     z-index: 1;
-    /* Only apply if you are using background-image for .hero-section */
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
     padding: 20px;
-    /* Removed background for the box structure */
     border-radius: 10px;
 }
 
@@ -78,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-section .tagline {
     font-size: 2em;
-    color: var(--primary-accent-color); /* Now using the single, darker accent blue */
+    color: var(--primary-accent-color);
     margin-bottom: 25px;
 }
 
@@ -100,14 +98,14 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.1em;
     transition: all 0.3s ease;
     letter-spacing: 1px;
-    background-color: transparent; /* Start transparent for outline effect */
-    border: 2px solid var(--primary-accent-color); /* Border with primary accent color */
-    color: var(--primary-accent-color); /* Text color with primary accent */
+    background-color: transparent;
+    border: 2px solid var(--primary-accent-color);
+    color: var(--primary-accent-color);
 }
 
 .hero-buttons .btn:hover {
-    background-color: var(--primary-accent-color); /* Fill with primary accent color on hover */
-    color: #fff; /* White text on hover */
+    background-color: var(--primary-accent-color);
+    color: #fff;
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
@@ -130,7 +128,7 @@ h2::after {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background-color: var(--primary-accent-color); /* Primary accent color for underline */
+    background-color: var(--primary-accent-color);
     border-radius: 2px;
 }
 
@@ -145,11 +143,11 @@ h2::after {
 
 .about-content {
     display: flex;
-    flex-direction: row; /* Default to row layout for desktop (text left, image right) */
-    flex-wrap: wrap; /* Allow items to wrap to next line on smaller screens */
-    align-items: center; /* Vertically align items in the center */
-    justify-content: center; /* Center items horizontally when they wrap or are side-by-side */
-    gap: 60px; /* Space between text and image */
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
 }
 
 .about-text {
@@ -175,7 +173,7 @@ h2::after {
     max-width: 100%;
 }
 
-/* Placeholder Sections (Used for Projects and Contact for now) */
+/* Placeholder Sections */
 .section-placeholder {
     padding: 80px 0;
     background-color: var(--light-section-bg);
@@ -194,7 +192,7 @@ footer {
     font-size: 0.9em;
 }
 
-/* Skills Section Styling */
+/* Skills Section Styling (Updated for Subskills Hover) */
 .skills-section {
     padding: 80px 0;
     background-color: var(--light-section-bg);
@@ -210,74 +208,99 @@ footer {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted minmax for new content */
     gap: 25px;
     margin-top: 50px;
 }
 
 .skill-card {
     background-color: #fff;
-    padding: 30px 20px;
+    padding: 25px 20px; /* Slightly reduced padding to account for expansion */
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.4s ease-out; /* Added max-height transition */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    border: 1px solid var(--border-color-dark); /* Black border for consistency with services */
+    border: 1px solid var(--border-color-dark);
+    /* Set an initial max-height that fits the main skill content */
+    max-height: 170px; /* Adjust this value if your initial content is taller/shorter */
+    overflow: hidden; /* Hide overflowing subskills initially */
+    position: relative; /* Needed for any absolute positioning within card */
 }
 
 .skill-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    max-height: 350px; /* Enough height to reveal all subskills. Adjust if more needed. */
+}
+
+.main-skill-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensures it takes full width for alignment */
+    /* Padding to create space between main skill and subskills */
+    padding-bottom: 15px;
 }
 
 .skill-icon {
     font-size: 3.5em;
-    color: var(--primary-accent-color); /* Primary accent blue for icons */
-    margin-bottom: 20px;
+    color: var(--primary-accent-color);
+    margin-bottom: 15px; /* Reduced margin from 20px */
 }
 
 .skill-card h3 {
     font-size: 1.5em;
-    margin-bottom: 15px;
+    margin-bottom: 0; /* Remove bottom margin to prevent double spacing */
     color: var(--text-color-dark);
 }
 
-/* Skill Level Bar Styling */
-.skill-level-bar {
-    width: 100%;
-    background-color: var(--border-color-light); /* Light grey bar */
-    border-radius: 5px;
-    height: 8px;
-    margin-top: 10px;
-    overflow: hidden;
+/* Subskills List Styling */
+.subskills-list {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 10px 0 0 0; /* Top margin for spacing from main skill */
+    text-align: left; /* Align subskills to the left within the card */
+    width: 100%; /* Ensure list takes full width for left alignment */
+
+    /* Initial state: Hidden and collapsed */
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden; /* Crucial for hiding content and enabling max-height transition */
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
 }
 
-.skill-level-fill {
-    height: 100%;
-    background-color: var(--primary-accent-color); /* Primary accent blue for fill */
-    border-radius: 5px;
-    transition: width 0.8s ease-in-out;
+.skill-card:hover .subskills-list {
+    max-height: 200px; /* A generous height to ensure all subskills are visible on hover */
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Radar Chart Placeholder Styling */
-.radar-chart-placeholder {
-    background-color: var(--light-section-bg);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-top: 50px;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-style: italic;
-    color: #777;
-    border: 1px solid var(--border-color-light);
+.subskills-list li {
+    font-size: 0.9em;
+    color: var(--text-color-light); /* Lighter text for subskills */
+    margin-bottom: 8px; /* Space between subskill items */
+    padding-left: 5px; /* Slight indentation */
+    position: relative;
 }
+
+.subskills-list li:last-child {
+    margin-bottom: 0; /* No margin after the last item */
+}
+
+/* Add a subtle bullet point for subskills */
+.subskills-list li::before {
+    content: '•'; /* Unicode character for a bullet point */
+    color: var(--primary-accent-color); /* Accent color for the bullet */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em; /* Space for the bullet */
+    margin-left: -1em; /* Negative margin to pull bullet into padding */
+}
+
 
 /* My Quality Services Section Styling */
 .services-section {
@@ -306,7 +329,7 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 1px solid var(--border-color-dark); /* Black border for consistency with skills */
+    border: 1px solid var(--border-color-dark);
 }
 
 .service-card:hover {
@@ -316,7 +339,7 @@ footer {
 
 .service-icon {
     font-size: 4em;
-    color: var(--primary-accent-color); /* Primary accent color for service icons */
+    color: var(--primary-accent-color);
     margin-bottom: 25px;
 }
 
@@ -332,9 +355,9 @@ footer {
     line-height: 1.5;
 }
 
-/* General Link Styling (ensure consistency) */
+/* General Link Styling */
 a {
-    color: var(--primary-accent-color); /* Primary accent color for general links */
+    color: var(--primary-accent-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -370,6 +393,23 @@ a:hover {
     }
 
     .about-content {
-        flex-direction: column; /* Force column on small screens */
+        flex-direction: column;
+    }
+
+    /* On mobile, subskills should always be visible (no hover) */
+    .skill-card {
+        max-height: fit-content; /* Allow height to adjust to content */
+        overflow: visible; /* Ensure content is visible */
+        /* Optionally remove hover effect on transform/shadow if not desired on mobile */
+        transform: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Keep default shadow */
+    }
+
+    .subskills-list {
+        max-height: 200px; /* Or a larger value if needed */
+        opacity: 1;
+        visibility: visible;
+        /* No transition on max-height/opacity/visibility if always visible */
+        transition: none;
     }
 }
