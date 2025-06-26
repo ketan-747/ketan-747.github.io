@@ -1,16 +1,17 @@
-/* Define a primary accent color for consistency */
+/* Define consistent color variables */
 :root {
-    --primary-accent-color: #00bcd4; /* Vibrant Cyan */
-    --dark-primary-bg: #333; /* Dark background from hero */
-    --light-section-bg: #fff; /* White background for sections */
-    --text-color-dark: #222;
-    --text-color-light: #555;
-    --border-color: #eee;
+    --primary-accent-color: #00bcd4; /* Vibrant Cyan - for icons, underlines, general links, buttons */
+    --secondary-accent-color: #007bff; /* Darker Blue - for specific highlights like tagline */
+    --dark-primary-bg: #333; /* Dark background from hero and skill bar fill */
+    --light-section-bg: #fff; /* White background for sections like About, Services, Skills */
+    --text-color-dark: #222; /* Dark text for headings and main content */
+    --text-color-light: #555; /* Slightly lighter text for paragraphs */
+    --border-color: #eee; /* Light border color for cards */
 }
 
 /* General Body & Typography Styles */
 body {
-    font-family: 'Roboto', sans-serif; /* Using Roboto as the body font */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--light-section-bg); /* Consistent light background */
@@ -20,9 +21,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif; /* Using Montserrat as the heading font */
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    color: var(--text-color-dark); /* Darker headings */
+    color: var(--text-color-dark);
 }
 
 /* Container for content width */
@@ -32,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
 }
 
-/* Hero Section Styling (Now with potential background image) */
+/* Hero Section Styling */
 .hero-section {
     position: relative;
     /* Optional: If you want a background image, uncomment and adjust path */
@@ -69,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     z-index: 2;
     padding: 20px;
-    background: rgba(0,0,0,0.3);
+    /* background: rgba(0,0,0,0.3); -- REMOVED THIS LINE COMPLETELY to remove the box */
     border-radius: 10px;
 }
 
@@ -82,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-section .tagline {
     font-size: 2em;
-    color: var(--primary-accent-color); /* Accent color */
+    color: var(--secondary-accent-color); /* Darker blue for tagline as requested */
     margin-bottom: 25px;
 }
 
@@ -149,16 +150,20 @@ h2::after {
 
 .about-content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 60px;
+    flex-direction: row; /* Default to row layout for desktop (text left, image right) */
+    flex-wrap: wrap; /* Allow items to wrap to next line on smaller screens */
+    align-items: center; /* Vertically align items in the center */
+    justify-content: center; /* Center items horizontally when they wrap or are side-by-side */
+    gap: 60px; /* Space between text and image */
 }
 
 .about-text {
-    max-width: 650px;
+    max-width: 600px; /* Control text width */
     text-align: left;
     font-size: 1.1em;
-    color: var(--text-color-light); /* Slightly lighter text for body */
+    color: var(--text-color-light);
+    flex-basis: 1; /* Allow text to grow/shrink based on available space */
+    min-width: 300px; /* Prevent text from becoming too narrow before wrapping */
 }
 
 .about-text p {
@@ -169,9 +174,8 @@ h2::after {
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    object-fit: cover;
-    /* Removed border */
-    /* border: 6px solid var(--primary-accent-color); */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    border: none; /* Explicitly ensure no border */
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     max-width: 100%; /* Ensure image is responsive */
 }
@@ -179,30 +183,30 @@ h2::after {
 /* Placeholder Sections (Used for Projects and Contact for now) */
 .section-placeholder {
     padding: 80px 0;
-    background-color: var(--light-section-bg); /* Consistent light background */
+    background-color: var(--light-section-bg);
     text-align: center;
     margin-bottom: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Added subtle shadow */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 /* Footer Styling */
 footer {
-    background-color: var(--dark-primary-bg); /* Consistent dark background */
+    background-color: var(--dark-primary-bg);
     color: #eee;
     text-align: center;
     padding: 30px 0;
     font-size: 0.9em;
 }
 
-/* Skills Section Styling - Now with black outline & dark accents */
-.skills-section { /* Renamed from section-placeholder#skills */
+/* Skills Section Styling */
+.skills-section {
     padding: 80px 0;
-    background-color: var(--light-section-bg); /* Consistent light background */
+    background-color: var(--light-section-bg);
     text-align: center;
     margin-bottom: 30px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Added subtle shadow */
-    border-radius: 8px; /* Added border-radius */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 8px;
 }
 
 .skills-content {
@@ -237,7 +241,7 @@ footer {
 
 .skill-icon {
     font-size: 3.5em;
-    color: var(--dark-primary-bg); /* Dark accent color for icons */
+    color: var(--primary-accent-color); /* Set to primary accent blue as requested */
     margin-bottom: 20px;
 }
 
@@ -250,7 +254,7 @@ footer {
 /* Skill Level Bar Styling */
 .skill-level-bar {
     width: 100%;
-    background-color: var(--border-color); /* Light grey bar */
+    background-color: var(--border-color);
     border-radius: 5px;
     height: 8px;
     margin-top: 10px;
@@ -259,7 +263,7 @@ footer {
 
 .skill-level-fill {
     height: 100%;
-    background-color: var(--dark-primary-bg); /* Dark accent for fill */
+    background-color: var(--dark-primary-bg); /* Still dark fill for contrast with white card */
     border-radius: 5px;
     transition: width 0.8s ease-in-out;
 }
@@ -280,10 +284,10 @@ footer {
     border: 1px solid var(--border-color);
 }
 
-/* My Quality Services Section Styling - Now consistent colors */
+/* My Quality Services Section Styling */
 .services-section {
     padding: 80px 0;
-    background-color: var(--light-section-bg); /* Consistent light background */
+    background-color: var(--light-section-bg);
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     margin-bottom: 30px;
@@ -307,7 +311,7 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 1px solid var(--border-color); /* Light border */
+    border: 1px solid var(--border-color);
 }
 
 .service-card:hover {
@@ -320,7 +324,6 @@ footer {
     color: var(--primary-accent-color); /* Using the primary accent color */
     margin-bottom: 25px;
 }
-
 
 .service-card h3 {
     font-size: 1.8em;
@@ -342,20 +345,19 @@ a {
 }
 
 a:hover {
-    color: var(--text-color-dark); /* Darker on hover for general links */
+    color: var(--text-color-dark);
     text-decoration: underline;
 }
-
 
 /* Responsive Design adjustments */
 @media (max-width: 768px) {
     .services-grid,
-    .skills-grid { /* Apply to both grids */
-        grid-template-columns: 1fr;
+    .skills-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
     }
 
     .hero-section h1 {
-        font-size: 3em; /* Adjust for smaller screens */
+        font-size: 3em;
     }
 
     .hero-section .tagline {
@@ -372,7 +374,8 @@ a:hover {
         font-size: 2em;
     }
 
+    /* About content will now handle its own wrapping via flex-wrap */
     .about-content {
-        flex-direction: column;
+        flex-direction: column; /* Force column on small screens */
     }
 }
