@@ -1,6 +1,6 @@
 /* Define consistent color variables */
 :root {
-    --primary-accent-color: #dd751f; /* Your chosen accent color */
+    --primary-accent-color: #f19344; /* Your chosen accent color */
     --dark-primary-bg: #000; /* Dark background from hero */
     --light-section-bg: #fff; /* White background for sections like About, Services, Skills */
     --text-color-dark: #222; /* Dark text for headings and main content */
