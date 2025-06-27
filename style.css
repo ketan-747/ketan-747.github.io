@@ -36,13 +36,13 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section Styling - UPDATED for Left Alignment */
 .hero-section {
     position: relative;
-    background-image: url('./images/bg.png');
+    background-image: url('./images/b.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
     /* Removed text-align: center; */
-    padding: 20px 15px;
+    padding: 20px 20px;
     min-height: 90vh;
     display: flex;
     align-items: flex-start; /* Align content to the start (left) of the cross-axis */
